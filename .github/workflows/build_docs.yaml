@@ -14,7 +14,7 @@ jobs:
       - name: Build
         id: build
         run: |
-          nix-build
+          nix-build -A sawtooth-haskell-protos-src
           # echo "::set-output name=result::$(realpath result)"
           tar cvzf sawtooth-haskell-protos-src.tar.gz $(realpath result)
       - uses: actions/upload-artifact@v2
