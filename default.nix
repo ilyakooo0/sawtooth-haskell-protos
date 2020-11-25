@@ -32,12 +32,13 @@ let
     nixpkgs.haskellPackages.callCabal2nix "sawtooth-haskell-protos" sawtooth-haskell-protos-src { };
   sawtooth-haskell-protos-overlay = hself: hsuper: {
     sawtooth-haskell-protos = hsuper.callCabal2nix "sawtooth-haskell-protos" sawtooth-haskell-protos-src { };
-    haskell-src = hsuper.callHackageDirect
+    haskell-src = nixpkgs.haskell.lib.doJailbreak (hsuper.callHackageDirect
       {
         pkg = "haskell-src";
         ver = "1.0.3.1";
         sha256 = "11s2qnnhchcbi6szvcglv4xxz3l6zw9w3pziycpwrigjvpigymd2";
-      } { };
+      } { }
+    );
     insert-ordered-containers = hsuper.callHackageDirect
       {
         pkg = "insert-ordered-containers";
