@@ -1,0 +1,50 @@
+{
+    "niv": {
+        "branch": "master",
+        "description": "Easy dependency management for Nix projects",
+        "homepage": "https://github.com/nmattia/niv",
+        "owner": "nmattia",
+        "repo": "niv",
+        "rev": "ba57d5a29b4e0f2085917010380ef3ddc3cf380f",
+        "sha256": "1kpsvc53x821cmjg1khvp1nz7906gczq8mp83664cr15h94sh8i4",
+        "type": "tarball",
+        "url": "https://github.com/nmattia/niv/archive/ba57d5a29b4e0f2085917010380ef3ddc3cf380f.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixpkgs": {
+        "branch": "release-20.03",
+        "description": "Nix Packages collection",
+        "homepage": "",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "5a9e4f07f714e811bded0a45ed8fe55c5c6048fd",
+        "sha256": "09s7h5qq866awkxz2l33b7x7lqmsm4xxzaqxlybj5bkdfxws2lb6",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/5a9e4f07f714e811bded0a45ed8fe55c5c6048fd.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "proto3-suite": {
+        "branch": "master",
+        "description": " Haskell Protobuf Implementation",
+        "homepage": null,
+        "owner": "awakesecurity",
+        "repo": "proto3-suite",
+        "rev": "0af901f9ef3b9719e08eae4fab8fd700d6c8047a",
+        "sha256": "0mpy35r6qd1v5sixhy2lqcn5x81rfj4dc079g1kpa4fb1f23dbha",
+        "type": "tarball",
+        "url": "https://github.com/awakesecurity/proto3-suite/archive/0af901f9ef3b9719e08eae4fab8fd700d6c8047a.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "sawtooth-core": {
+        "branch": "master",
+        "description": "Core repository for Sawtooth Distributed Ledger",
+        "homepage": "https://wiki.hyperledger.org/display/sawtooth",
+        "owner": "hyperledger",
+        "repo": "sawtooth-core",
+        "rev": "be283f9cc4cbe53f8eed3b66b00a7fcffe58804f",
+        "sha256": "1d01jmaykyg0gii1q26i4g4bhl8k8g542aas0lgcj5qlipjfk7ha",
+        "type": "tarball",
+        "url": "https://github.com/hyperledger/sawtooth-core/archive/be283f9cc4cbe53f8eed3b66b00a7fcffe58804f.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    }
+}

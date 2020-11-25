@@ -1,0 +1,31 @@
+name: Package sources
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  linux:
+    name: Package sources
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: cachix/install-nix-action@v12
+      - name: Build
+        id: build
+        run: |
+          nix-build
+          # echo "::set-output name=result::$(realpath result)"
+          tar cvzf sawtooth-haskell-protos-src.tar.gz $(realpath result)
+      - uses: actions/upload-artifact@v2
+        with:
+          name: docs
+          path: sawtooth-haskell-protos-src.tar.gz
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          # prerelease: true
+          # title: ""
+          files: |
+            sawtooth-haskell-protos-src.tar.gz
