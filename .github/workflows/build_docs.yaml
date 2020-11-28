@@ -11,28 +11,26 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: cachix/install-nix-action@v12
-      - name: Build
-        run: |
-          nix-build -A sawtooth-haskell-protos-src
-          # echo "::set-output name=result::$(realpath result)"
-          cp -r $(realpath result) sawtooth-haskell-protos-src
-          tar cvzf sawtooth-haskell-protos-src.tar.gz sawtooth-haskell-protos-src
-          rm result
-      - uses: actions/upload-artifact@v2
-        with:
-          name: docs
-          path: sawtooth-haskell-protos-src.tar.gz
       - name: Build sources
         run: |
           nix-build -A sawtooth-haskell-protos-src
           cp -r $(realpath result) sawtooth-haskell-protos-src
           tar cvzf sawtooth-haskell-protos-src.tar.gz sawtooth-haskell-protos-src
+      - uses: actions/upload-artifact@v2
+        with:
+          name: sawtooth-haskell-protos-src
+          path: sawtooth-haskell-protos-src.tar.gz
       - name: Build docs
         run: |
           nix-build -A build.doc
           cp -r $(realpath result-doc)/share/doc/sawtooth-haskell-protos-0.0.0/html docs
           tar cvzf docs.tar.gz docs
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: actions/upload-artifact@v2
+        with:
+          name: docs
+          path: docs.tar.gz
+      - name: Release
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
