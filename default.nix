@@ -71,7 +71,13 @@ let
         sha256 = "080xkljq1iq0i8wagg8kbzbp523p2awa98wpn9i4ph1dq8y8346y";
       } { }
     );
-    parameterized = nixpkgs.haskell.lib.dontCheck hsuper.parameterized;
+    parameterized = nixpkgs.haskell.lib.dontCheck (hsuper.callHackageDirect
+      {
+        pkg = "parameterized";
+        ver = "0.5.0.0";
+        sha256 = "sha256-FB3E0ChUG1x6uYE8fL7hcncS5Xg0mqNOxc7KlLhEdB0=";
+      } { }
+    );
   };
 in
 {
