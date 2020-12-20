@@ -1,11 +1,16 @@
-{ sources ? import nix/sources.nix
-, nixpkgs ? import sources.nixpkgs { }
+{ sources ? import nix/sources.nix { inherit system; }
+, nixpkgs ? import sources.nixpkgs { inherit system; }
+, system ? builtins.currentSystem
 }:
 let
-  proto3-suite = import sources.proto3-suite { };
+  proto3-suite' = import sources.proto3-suite { };
+  proto3-suite =
+    if system == "x86_64-linux" then proto3-suite'.proto3-suite-linux
+    else if system == "x86_64-darwin" then proto3-suite'.proto3-suite-darwin
+    else abort "proto3-suite only supports x86_64-linux and x86_64-darwin at the moment :(";
   sawtooth-haskell-protos-src = nixpkgs.stdenv.mkDerivation {
     name = "sawtooth-haskell-protos-src";
-    buildInputs = [ proto3-suite.proto3-suite ];
+    buildInputs = [ proto3-suite ];
     src = sources.sawtooth-core + "/protos";
     buildPhase = ''
       for f in *.proto
