@@ -23,6 +23,18 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/a346c68411cc2fe0392e8905f9300fa0973cf1b4.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "proto3-suite": {
+        "branch": "master",
+        "description": " Haskell Protobuf Implementation",
+        "homepage": null,
+        "owner": "awakesecurity",
+        "repo": "proto3-suite",
+        "rev": "0af901f9ef3b9719e08eae4fab8fd700d6c8047a",
+        "sha256": "0mpy35r6qd1v5sixhy2lqcn5x81rfj4dc079g1kpa4fb1f23dbha",
+        "type": "tarball",
+        "url": "https://github.com/awakesecurity/proto3-suite/archive/0af901f9ef3b9719e08eae4fab8fd700d6c8047a.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "sawtooth-core": {
         "branch": "master",
         "description": "Core repository for Sawtooth Distributed Ledger",

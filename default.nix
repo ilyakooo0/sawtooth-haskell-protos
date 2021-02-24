@@ -8,7 +8,12 @@ let
     broken = false;
   });
   overrides = (hself: hsuper: {
-    proto3-suite = nixpkgs.haskell.lib.dontCheck (nixpkgs.haskell.lib.doJailbreak (unbreak hsuper.proto3-suite));
+    proto3-suite = nixpkgs.haskell.lib.dontCheck (
+      nixpkgs.haskell.lib.doJailbreak (
+        hsuper.callCabal2nix "proto3-suite"
+          sources.proto3-suite { }
+      )
+    );
     proto3-wire =
       hsuper.callHackageDirect
         {
